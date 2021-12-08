@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta name= "viewport" content="with-device-width, initial-scale=1.0">
+		<title> Karma Environmental Services </title>
+		<link rel="stylesheet" href="style.css">
+			<link rel="preconnect" href="https://fonts.googleapis.com">
+			<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+			<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;600;700&display=swap" rel="stylesheet">
+			<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.4/css/fontawesome.min.css">
+			<script src="https://kit.fontawesome.com/dcb7fd4e61.js" crossorigin="anonymous"></script>
+		<style>
+			a{
+				line-height:14px;
+				color: #184b88;
+				text-decoration: none;
+				font-size: 12px;
+			}
+			</style>
+	</head>
+	<body class="class-for-contactus">
+		
+		<section class = "header">
+			<nav>
+				<a href="index.html"><img src= "https://s3.amazonaws.com/karmaenvironmentalservices.coil.com/karmafulllogo.png"></a>
+				<div class="nav-links" id="navLinks">
+					<ul>
+						<i class="fa fa-times" onclick="hideMenu()"></i>
+						<li><a href="https://karma-environmental-services.s3.amazonaws.com/index.html">Home</a></li>
+						<li><a href="https://karma-environmental-services.s3.amazonaws.com/whoweare.html">Who We Are</a></li>
+						<li><a href="https://karma-environmental-services.s3.amazonaws.com/whatwedo.html">What We Do</a></li>
+						<li><a href="https://karma-environmental-services.s3.amazonaws.com/whoweserve.html">Who We Serve</a></li>
+						<li><a href="https://karma-environmental-services.s3.amazonaws.com/blog.html">Blog</a></li>
+						<li><a href="https://karma-environmental-services.s3.amazonaws.com/faq.html">F.A.Q</a></li>
+						<li><a href="https://karma-environmental-services.s3.amazonaws.com/contactus.html">Contact Us</a></li>
+							
+						</ul>
+					</div>
+				<i class="fa fa-bars" onclick="showMenu()"></i>
+				</nav>
+			
+			<div class="text-box">
+				<h1> What goes around, comes around.</h1>
+				<p>Making the world a better place one body of water at a time.</p>
+				</div>
+			</section>
+		
+		<!------Contact Us-------->
+<section class="contactus">
+	
+		<div class="column" >
+			
+						<div class ="google-map">
+							<h4>Let's get in touch<br>
+								<h3><i class="fas fa-hand-holding-water"></h3></i>
+								</h4>
+							<br>
+							<br>
+						<iframe  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3504.4776235706186!2d-81.25299638519452!3d28.555417082448354!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x88e7660abe1cd525%3A0xbbd88be7f8083097!2s701%20N%20Econlockhatchee%20Trail%2C%20Orlando%2C%20FL%2032825!5e0!3m2!1sen!2sus!4v1638885578727!5m2!1sen!2sus" width="450" height="350" style="border:1px solid #184b88;" allowfullscreen="true" loading="lazy"></iframe>
+						
+						</div><!--googlemap--->
+						
+						<div class="container" >
+							<h3>Let's get in touch<br></h3>
+								<br>
+								
+							<h4>Contact Form </h4>
+
+								<form action="https://formspree.io/f/myyoyyba" method="POST" id="my-form">
+
+								  <div class="form-group">
+									<label for="firstName"> First Name</label>
+									<input type="text" id="firstName" name="firstName">
+								  </div>
+
+								  <div class="form-group">
+									<label for="latsName">Last Name</label>
+									<input type="text" id="lastName" name="lastName">
+								  </div>
+
+								  <div class="form-group">
+									<label for="email">Email</label>
+									<input type="email" id="email" name="email">
+								  </div>
+								  
+								  <div class="form-group">
+									<label for="company">Company</label>
+									<input type="company" id="company" name="company">
+								  </div>
+
+								  <div class="form-group">
+									<label for="massage">Message</label>
+									<textarea name="massage" id="massage" cols="30" rows="5"></textarea>
+								  </div>
+
+								  <button type="submit">Submit</button>
+							</form>
+					
+						
+					 <div id="status"></div><!--container----->
+		</div><!--column----->
+</section><!--contact------>
+		
+		
+		
+			<!--------------------JAVA SCRIPT FOR CONTACT FORM-------->
+			<script>
+			window.addEventListener("DOMContentLoaded", function () {
+			  // get the form elements defined in your form HTML above
+
+			  var form = document.getElementById("my-form");
+			  // var button = document.getElementById("my-form-button");
+			  var status = document.getElementById("status");
+
+			  // Success and Error functions for after the form is submitted
+
+			  function success() {
+				form.reset();
+				status.classList.add("success");
+				status.innerHTML = "Thanks!";
+			  }
+
+			  function error() {
+				status.classList.add("error");
+				status.innerHTML = "Oops! There was a problem.";
+			  }
+
+			  // handle the form submission event
+
+			  form.addEventListener("submit", function (ev) {
+				ev.preventDefault();
+				var data = new FormData(form);
+				ajax(form.method, form.action, data, success, error);
+			  });
+			});
+
+			// helper function for sending an AJAX request
+
+			function ajax(method, url, data, success, error) {
+			  var xhr = new XMLHttpRequest();
+			  xhr.open(method, url);
+			  xhr.setRequestHeader("Accept", "application/json");
+			  xhr.onreadystatechange = function () {
+				if (xhr.readyState !== XMLHttpRequest.DONE) return;
+				if (xhr.status === 200) {
+				  success(xhr.response, xhr.responseType);
+				} else {
+				  error(xhr.status, xhr.response, xhr.responseType);
+				}
+			  };
+			  xhr.send(data);
+			}
+				</script>
+			
+			
+				
+				
+		
+		<!------footer-------->
+		<section class= "footer">
+			
+			<div class="row">
+				<div class="contact-col">
+					<h4>Contact us:</h4>
+					
+					<p><i class="far fa-envelope-open"></i> : hello@karmaenvironmental.com<br>
+					<i class="fas fa-phone"></i> : (407) 299-5000<br>
+					<i class="fas fa-map-pin"></i> : 701 N Econlockhatchee Trail,<br>Orlando, FL 32825<br>
+					</p>
+					</div>
+				<div class="contact-col">
+						<h4>Where to next?</h4>
+						<p>
+						<ul>
+						<li><a href="https://karma-environmental-services.s3.amazonaws.com/index.html">Home</a></li>
+						<li><a href="https://karma-environmental-services.s3.amazonaws.com/whoweare.html">Who We Are</a></li>
+						<li><a href="https://karma-environmental-services.s3.amazonaws.com/whatwedo.html">What We Do</a></li>
+						<li><a href="https://karma-environmental-services.s3.amazonaws.com/whoweserve.html">Who We Serve</a></li>
+						<li><a href="https://karma-environmental-services.s3.amazonaws.com/blog.html">Blog</a></li>
+						<li><a href="https://karma-environmental-services.s3.amazonaws.com/faq.html">F.A.Q</a></li>
+						<li><a href="https://karma-environmental-services.s3.amazonaws.com/contactus.html">Contact Us</a></li>
+						</ul>
+						</p>
+						</div>
+					
+					
+					<div class="contact-col">
+					<h4>Let's talk.</h4>
+					
+					<p>
+					Let's socialize:
+					<a target="_blank" href="http://www.facebook.com/"><i class="fa
+					fa-facebook"></i></a>
+					<a target="_blank" href="http://www.twitter.com/"><i class="fa fa-twitter"></i></a>
+					<a target="_blank" href="http://www.instagram.com/"><i class="fa fa-instagram"></i></a>
+					<a target="_blank" href="http://www.linkedin.com/"><i class="fa fa-linkedin"></i></a>
+					<br>
+					Karma Environmental Services @2021.<br> All rights reserved<br>
+					<ul><li><a href="https://karma-environmental-services.s3.amazonaws.com/contactus.html">Terms of Service</a><li></ul>
+					</p>
+					<div class="request"><a href="default.asp" target="_blank">Request a quote.</a><br>
+					</div>
+					
+					
+					
+					</div>
+			</div>
+			
+			
+			</section>
+
+		</body>
+	</html>
